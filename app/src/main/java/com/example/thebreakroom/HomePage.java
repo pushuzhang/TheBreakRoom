@@ -28,6 +28,8 @@ public class HomePage extends AppCompatActivity {
             Intent startIntent = new Intent(HomePage.this, Welcome.class);
             startActivity(startIntent);
             // finish();
+        } else {
+            startActivity(new Intent(HomePage.this, MakeRoom.class));
         }
     }
 }
