@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TheBreakRoom">
-        <activity android:name=".LeaveSuccess"></activity>
+        <activity android:name=".CreateSuccess"></activity>
         <activity android:name=".LeaveRoom" />
         <activity android:name=".NewRoom" />
         <activity android:name=".ChatRoom" />
