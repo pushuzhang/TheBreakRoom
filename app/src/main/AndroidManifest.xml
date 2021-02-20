@@ -13,10 +13,10 @@
         <activity android:name=".LeaveRoom" />
         <activity android:name=".NewRoom" />
         <activity android:name=".ChatRoom" />
-        <activity android:name=".Make" />
-        <activity android:name=".Join" />
+        <activity android:name=".MakeRoom" />
+        <activity android:name=".JoinRoom" />
         <activity android:name=".Welcome" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".HomePage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
