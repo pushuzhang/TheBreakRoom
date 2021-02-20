@@ -6,15 +6,85 @@
     android:layout_height="match_parent"
     tools:context=".Welcome">
 
-    <TextView
-        android:id="@+id/FUCKKK"
+    <ImageView
+        android:id="@+id/welcome_bg_top"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="FUCKKK"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.441"
+        android:contentDescription="@string/background_top_image"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.514" />
+        app:srcCompat="@drawable/ic_bg_top" />
+
+    <ImageView
+        android:id="@+id/welcome_bg_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/bottom_background_image"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_bg_bottom" />
+
+    <ImageView
+        android:id="@+id/welcome_logo"
+        android:layout_width="146dp"
+        android:layout_height="147dp"
+        android:layout_marginBottom="150dp"
+        android:contentDescription="@string/the_breakroom_logo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_breakroom_app_logo" />
+
+    <TextView
+        android:id="@+id/welcome_top_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/welcome_to"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcome_logo" />
+
+    <TextView
+        android:id="@+id/welcome_bottom_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="@string/the_breakroom"
+        android:textColor="#000000"
+        android:textSize="26sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcome_top_text" />
+
+    <ImageView
+        android:id="@+id/welcome_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:contentDescription="@string/get_started"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcome_bottom_text"
+        app:layout_constraintVertical_bias="0.515"
+        app:srcCompat="@drawable/ic_green_button" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/get_started"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/welcome_button"
+        app:layout_constraintEnd_toEndOf="@+id/welcome_button"
+        app:layout_constraintStart_toStartOf="@+id/welcome_button"
+        app:layout_constraintTop_toTopOf="@+id/welcome_button" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
