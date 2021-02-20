@@ -17,7 +17,7 @@ public class MakeRoom extends AppCompatActivity {
 
     private ImageView newRoom;
     private EditText roomName;
-    private DatabaseReference root = FirebaseDatabase.getInstance().getReference().getRoot();
+    private DatabaseReference root = FirebaseDatabase.getInstance("https://thebreakroom-32cd2-default-rtdb.firebaseio.com").getReference();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
