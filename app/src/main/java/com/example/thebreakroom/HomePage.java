@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -23,11 +24,10 @@ public class HomePage extends AppCompatActivity {
     public void onStart() {
         super.onStart();
         FirebaseUser currentUser = mAuth.getCurrentUser();
-
         if(currentUser == null){
             Intent startIntent = new Intent(HomePage.this, Welcome.class);
             startActivity(startIntent);
-            finish();
+            // finish();
         }
     }
 }

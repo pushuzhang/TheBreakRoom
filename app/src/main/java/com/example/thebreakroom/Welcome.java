@@ -1,20 +1,20 @@
 package com.example.thebreakroom;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
-import android.widget.Button;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
+import android.content.Intent;
+import android.os.Bundle;
+
+import android.view.View;
+import android.widget.ImageView;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class Welcome extends AppCompatActivity {
 
-    private Button welcomeButton;
+    private ImageView mWelcome;
 
     private FirebaseAuth mAuth;
     private FirebaseUser mCurrentUser;
@@ -24,7 +24,6 @@ public class Welcome extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
         mAuth = FirebaseAuth.getInstance();
-        welcomeButton = (Button) findViewById(R.id.welcome_button);
     }
 
     public void onStart() {
@@ -36,6 +35,15 @@ public class Welcome extends AppCompatActivity {
         if(mCurrentUser == null){
             mAuth.signInAnonymously().addOnCompleteListener(task -> {
                 if(task.isSuccessful()){
+
+                    mWelcome = (ImageView) findViewById(R.id.welcome_button);
+
+                    mWelcome.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v){
+                            startActivity(new Intent(Welcome.this, JoinRoom.class));
+                        }
+                    });
 
                 }
                 else{}
