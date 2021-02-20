@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "402965443365",
+    "project_id": "thebreakroom-32cd2",
+    "storage_bucket": "thebreakroom-32cd2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:402965443365:android:6f9eb1799b3abd7ad360cc",
+        "android_client_info": {
+          "package_name": "com.example.thebreakroom"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "402965443365-phqvbl52cisb54pbncd71ujrujdfodeu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXwrj3EISUDwKarMw7WS1fTM48pPui-lU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "402965443365-phqvbl52cisb54pbncd71ujrujdfodeu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
