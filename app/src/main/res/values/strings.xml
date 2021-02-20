@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">TheBreakRoom</string>
+    <string name="welcome_to">Welcome To</string>
+    <string name="the_breakroom">The Breakroom</string>
+    <string name="get_started">Get Started</string>
+    <string name="the_breakroom_logo">The Breakroom Logo</string>
+    <string name="bottom_background_image">Bottom Background Image</string>
+    <string name="background_top_image">Background Top Image</string>
 </resources>
