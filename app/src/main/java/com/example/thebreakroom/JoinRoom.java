@@ -8,12 +8,9 @@ import android.view.View;
 import android.widget.ImageView;
 
 public class JoinRoom extends AppCompatActivity {
-<<<<<<< HEAD
-=======
 
     private ImageView cancelButton;
 
->>>>>>> f86a181765a5f8c3a392f12bfbcd7f0dacfd368e
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
