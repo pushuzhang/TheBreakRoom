@@ -2,6 +2,7 @@ package com.example.thebreakroom;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -17,6 +18,7 @@ import java.util.UUID;
 
 public class MakeRoom extends AppCompatActivity {
 
+    private ImageView cancelButton;
     private ImageView newRoom;
     private EditText roomName;
     private DatabaseReference root = FirebaseDatabase.getInstance("https://thebreakroom-32cd2-default-rtdb.firebaseio.com").getReference();
@@ -30,9 +32,17 @@ public class MakeRoom extends AppCompatActivity {
     public void onStart() {
         super.onStart();
 
+        cancelButton = (ImageView) findViewById(R.id.make_cancel_button);
         newRoom = (ImageView) findViewById(R.id.make_makeroom_button);
         roomName = (EditText) findViewById(R.id.make_room_name_textbox);
 
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MakeRoom.this,
+                        ChatRoom.class));
+            }
+        });
         newRoom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

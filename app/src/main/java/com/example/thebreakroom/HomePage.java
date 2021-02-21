@@ -29,7 +29,7 @@ public class HomePage extends AppCompatActivity {
             startActivity(startIntent);
             // finish();
         } else {
-            startActivity(new Intent(HomePage.this, MakeRoom.class));
+            startActivity(new Intent(HomePage.this, HomePage.class));
         }
     }
 }
