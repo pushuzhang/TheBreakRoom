@@ -40,7 +40,7 @@ public class MakeRoom extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MakeRoom.this,
-                        ChatRoom.class));
+                        HomePage.class));
             }
         });
         newRoom.setOnClickListener(new View.OnClickListener() {
