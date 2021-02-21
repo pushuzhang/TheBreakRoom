@@ -41,7 +41,7 @@ public class Welcome extends AppCompatActivity {
                     mWelcome.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v){
-                            startActivity(new Intent(Welcome.this, JoinRoom.class));
+                            startActivity(new Intent(Welcome.this, HomePage.class));
                         }
                     });
 
