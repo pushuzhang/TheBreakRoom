@@ -111,8 +111,7 @@ public class ChatRoom extends AppCompatActivity {
         leaveRoom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ChatRoom.this, LeaveRoom.class);
-                startActivity(intent);
+                startActivity(new Intent(ChatRoom.this, LeaveRoom.class));
             }
         });
     }

@@ -24,8 +24,7 @@ public class LeaveRoom extends AppCompatActivity {
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LeaveRoom.this,
-                        HomePage.class));
+                startActivity(new Intent(LeaveRoom.this,HomePage.class));
             }
         });
     }
