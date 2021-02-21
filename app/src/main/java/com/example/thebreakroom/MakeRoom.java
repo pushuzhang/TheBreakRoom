@@ -46,7 +46,7 @@ public class MakeRoom extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Map<String,Object> roomID = new HashMap<String, Object>();
-                String RID = UUID.randomUUID().toString();
+                String RID = UUID.randomUUID().toString().substring(0,21);
                 roomID.put(RID,"");
                 root.child("Rooms").updateChildren(roomID);
 
@@ -76,7 +76,7 @@ public class MakeRoom extends AppCompatActivity {
                 root.child("User").child(UID).updateChildren(groupID);
 
                 Intent intent = new Intent(MakeRoom.this, CreateSuccess.class);
-                intent.putExtra("RoomCode", roomID.toString());
+                intent.putExtra("RoomCode", RID.toString());
                 startActivity(intent);
 
             }

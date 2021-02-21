@@ -22,6 +22,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class HomePage extends AppCompatActivity {
 
@@ -76,8 +78,8 @@ public class HomePage extends AppCompatActivity {
         ref.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                //Log.d("bruh", String.valueOf(dataSnapshot.));
-                roomList.add("bruh");
+                HashMap<String, Object> map = (HashMap<String, Object>)dataSnapshot.getValue();
+                roomList.add(String.valueOf(map.get("Name")));
                 adapter.notifyDataSetChanged();
             }
 
