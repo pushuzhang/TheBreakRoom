@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.Button;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -13,6 +14,11 @@ import com.google.firebase.auth.FirebaseUser;
 public class HomePage extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
+
+    private ImageView joinButton;
+    private ImageView makeButton;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
