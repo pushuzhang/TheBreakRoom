@@ -51,7 +51,7 @@ public class MakeRoom extends AppCompatActivity {
                 root.child("Rooms").updateChildren(roomID);
 
                 Map<String,Object> messages = new HashMap<String, Object>();
-                messages.put("Messages: ","");
+                messages.put("Messages","");
                 root.child("Rooms").child(RID).updateChildren(messages);
 
                 Map<String,Object> rName = new HashMap<String, Object>();
