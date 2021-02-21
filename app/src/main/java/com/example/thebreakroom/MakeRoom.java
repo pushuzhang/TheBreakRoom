@@ -51,7 +51,7 @@ public class MakeRoom extends AppCompatActivity {
                 root.child("Rooms").updateChildren(roomID);
 
                 Map<String,Object> messages = new HashMap<String, Object>();
-                roomID.put("Messages: ","");
+                messages.put("Messages: ","");
                 root.child("Rooms").child(RID).updateChildren(messages);
 
                 Map<String,Object> rName = new HashMap<String, Object>();
@@ -74,6 +74,11 @@ public class MakeRoom extends AppCompatActivity {
                 Map<String,Object> groupID = new HashMap<String, Object>();
                 groupID.put("Group ID",RID);
                 root.child("User").child(UID).updateChildren(groupID);
+
+                Intent intent = new Intent(MakeRoom.this, CreateSuccess.class);
+                intent.putExtra("RoomCode", roomID.toString());
+                startActivity(intent);
+
             }
         });
     }
