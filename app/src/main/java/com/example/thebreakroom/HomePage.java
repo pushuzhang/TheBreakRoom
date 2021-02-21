@@ -94,7 +94,10 @@ public class HomePage extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(HomePage.this, ChatRoom.class);
-                //intent.putExtra("Name", ((TextView)view.getText().toString()));
+                TextView textView1 = view.findViewById(android.R.id.text1);
+                TextView textView2 = view.findViewById(android.R.id.text2);
+                intent.putExtra("Name", textView1.getText().toString());
+                intent.putExtra("ID", textView2.getText().toString());
                 startActivity(intent);
             }
         });
@@ -106,7 +109,7 @@ public class HomePage extends AppCompatActivity {
         if(currentUser == null){
             Intent startIntent = new Intent(HomePage.this, Welcome.class);
             startActivity(startIntent);
-            // finish();
+            finish();
         } else {
             newButton = findViewById(R.id.imageView18);
             newButton.setOnClickListener(new View.OnClickListener() {
