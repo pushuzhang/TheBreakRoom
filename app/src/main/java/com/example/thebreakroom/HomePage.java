@@ -8,10 +8,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -28,33 +31,11 @@ import java.util.Map;
 public class HomePage extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
-
     private ImageView newButton;
-
     private ListView rooms;
 
-    ArrayList<String> roomList;
-
+    ArrayList<Map<String, String>> roomList;
     DatabaseReference ref;
-
-//    class Message {
-//        String m;
-//        String userID;
-//    }
-//
-//    class Messages {
-//        Message mes;
-//    }
-//
-//    class User {
-//        String UID;
-//    }
-
-//    class Room {
-//        Messages mess;
-//        String name;
-//        User u;
-//    }
 
 
     @Override
@@ -65,21 +46,25 @@ public class HomePage extends AppCompatActivity {
 
         rooms = findViewById(R.id._dynamic);
 
-        roomList = new ArrayList<String>();
+        roomList = new ArrayList<Map<String, String>>();
+
 
         initializeListView();
+
     }
 
     private void initializeListView(){
-        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, roomList);
-
+        final SimpleAdapter adapter = new SimpleAdapter(this, roomList, android.R.layout.simple_list_item_2, new String[] {"Name", "ID"}, new int[] {android.R.id.text1, android.R.id.text2});
         ref = FirebaseDatabase.getInstance("https://thebreakroom-32cd2-default-rtdb.firebaseio.com").getReference().child("Rooms");
 
         ref.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 HashMap<String, Object> map = (HashMap<String, Object>)dataSnapshot.getValue();
-                roomList.add(String.valueOf(map.get("Name")));
+                Map<String, String> r = new HashMap<String, String>(2);
+                r.put("Name", String.valueOf(map.get("Name")));
+                r.put("ID",String.valueOf(dataSnapshot.getKey()));
+                roomList.add(r);
                 adapter.notifyDataSetChanged();
             }
 
@@ -103,8 +88,16 @@ public class HomePage extends AppCompatActivity {
 
             }
         });
-
         rooms.setAdapter(adapter);
+
+        rooms.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(HomePage.this, ChatRoom.class);
+                //intent.putExtra("Name", ((TextView)view.getText().toString()));
+                startActivity(intent);
+            }
+        });
     }
 
     public void onStart() {
