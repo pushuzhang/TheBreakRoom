@@ -7,11 +7,13 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 public class MakeRoom extends AppCompatActivity {
 
@@ -34,9 +36,35 @@ public class MakeRoom extends AppCompatActivity {
         newRoom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Map<String,Object> map = new HashMap<String, Object>();
-                map.put(roomName.getText().toString(),"");
-                root.updateChildren(map);
+                Map<String,Object> roomID = new HashMap<String, Object>();
+                String RID = UUID.randomUUID().toString();
+                roomID.put(RID,"");
+                root.child("Rooms").updateChildren(roomID);
+
+                Map<String,Object> messages = new HashMap<String, Object>();
+                roomID.put("Messages: ","");
+                root.child("Rooms").child(RID).updateChildren(messages);
+
+                Map<String,Object> rName = new HashMap<String, Object>();
+                rName.put("Name",roomName.getText().toString());
+                root.child("Rooms").child(RID).updateChildren(rName);
+
+                Map<String,Object> rUsers = new HashMap<String, Object>();
+                rUsers.put("Users","");
+                root.child("Rooms").child(RID).updateChildren(rUsers);
+
+                Map<String,Object> currentUID = new HashMap<String, Object>();
+                String UID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                currentUID.put("UID", UID);
+                root.child("Rooms").child(RID).child("Users").updateChildren(currentUID);
+
+                Map<String,Object> userID = new HashMap<String, Object>();
+                userID.put(UID,"");
+                root.child("User").updateChildren(userID);
+
+                Map<String,Object> groupID = new HashMap<String, Object>();
+                groupID.put("Group ID",RID);
+                root.child("User").child(UID).updateChildren(groupID);
             }
         });
     }
