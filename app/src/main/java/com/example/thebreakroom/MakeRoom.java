@@ -39,8 +39,7 @@ public class MakeRoom extends AppCompatActivity {
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MakeRoom.this,
-                        HomePage.class));
+                startActivity(new Intent(MakeRoom.this, HomePage.class));
             }
         });
         newRoom.setOnClickListener(new View.OnClickListener() {
