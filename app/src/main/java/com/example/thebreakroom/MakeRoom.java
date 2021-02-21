@@ -23,6 +23,7 @@ public class MakeRoom extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_make);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     public void onStart() {
